@@ -22,6 +22,8 @@ export default function Home() {
               loop
               muted
               playsInline
+              preload="metadata"
+              poster="/images/image (1).webp"
               className="absolute top-0 left-0 w-full h-full object-cover"
             >
               <source src="/Makeup.mp4" type="video/mp4" />
@@ -65,10 +67,11 @@ export default function Home() {
             <div className="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
               <div className="h-48 relative mb-4 rounded-lg overflow-hidden">
                 <Image
-                  src="/bridal-makeup.jpg"
+                  src="/images/image3.webp"
                   alt="Bridal Makeup"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
               <h3 className="text-2xl font-semibold mb-3">Bridal Makeup</h3>
@@ -87,10 +90,11 @@ export default function Home() {
             <div className="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
               <div className="h-48 relative mb-4 rounded-lg overflow-hidden">
                 <Image
-                  src="/special-events.jpg"
+                  src="/images/image4.webp"
                   alt="Special Events Makeup"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
               <h3 className="text-2xl font-semibold mb-3">Special Events</h3>
@@ -109,10 +113,11 @@ export default function Home() {
             <div className="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
               <div className="h-48 relative mb-4 rounded-lg overflow-hidden">
                 <Image
-                  src="/professional-makeup.jpg"
+                  src="/images/image.webp"
                   alt="Professional Makeup"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
               <h3 className="text-2xl font-semibold mb-3">Professional Makeup</h3>
@@ -156,10 +161,12 @@ export default function Home() {
             <div className="relative h-[500px] section-fade-in">
               <div className="absolute inset-0 bg-gradient-to-r from-pink-200 to-purple-200 rounded-2xl transform rotate-3"></div>
               <Image
-                src="/about-image.jpg"
+                src="/images/image (1).webp"
                 alt="Makeup Artist at Work"
                 fill
                 className="object-cover rounded-2xl shadow-xl -rotate-3 hover:rotate-0 transition-transform duration-300"
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </div>
@@ -241,10 +248,12 @@ export default function Home() {
             <div className="space-y-4">
               <div className="relative w-32 h-12">
                 <Image
-                  src="/logo.jpg"
+                  src="/images/image.webp"
                   alt="RovArt Logo"
                   fill
                   className="object-contain brightness-200"
+                  priority
+                  sizes="(max-width: 768px) 64px, 128px"
                 />
               </div>
               <p className="text-gray-400">

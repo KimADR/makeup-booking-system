@@ -73,6 +73,7 @@ const ServiceSection = ({ title, services }: ServiceSectionProps) => (
               alt={service.name}
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               priority
             />
             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />

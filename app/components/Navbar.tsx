@@ -21,7 +21,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+    <nav role="navigation" aria-label="Main navigation" className={`fixed w-full z-50 transition-all duration-300 ${
       scrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-lg py-1' : 'bg-black/20 backdrop-blur-sm py-2'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,7 +33,7 @@ export default function Navbar() {
                 scrolled ? 'bg-white/10' : 'bg-white/5'
               } backdrop-blur-sm`} />
               <Image
-                src="/logo.jpg"
+                src="/images/image.webp"
                 alt="RovArt Logo"
                 fill
                 className={`${styles.logoImage} object-cover rounded-full`}
@@ -121,6 +121,8 @@ export default function Navbar() {
             </SignedIn>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
               className={`p-2 rounded-full transition-colors duration-300 ${
                 scrolled
                   ? 'text-white hover:text-white hover:bg-white/10'
@@ -148,6 +150,8 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div
+          id="mobile-menu"
+          aria-hidden={!isMenuOpen}
           className={`md:hidden transition-all duration-300 ease-in-out ${
             isMenuOpen
               ? 'opacity-100 translate-y-0'
