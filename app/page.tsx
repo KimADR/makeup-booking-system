@@ -178,8 +178,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 section-fade-in">
             <h2 className="text-4xl font-bold mb-6 text-gray-900">Get in Touch</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Have questions or ready to book your appointment? We'd love to hear from you!
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Have questions or ready to book your appointment? We would love to hear from you!
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

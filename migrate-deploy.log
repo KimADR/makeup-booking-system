@@ -1,0 +1,3 @@
+Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Datasource "db": PostgreSQL database "rovartdb", schema "public" at "localhost:5432"

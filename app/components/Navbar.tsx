@@ -3,12 +3,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { useAuth, useUser } from '@clerk/nextjs';
 import { SignInButton, SignUpButton, UserButton, SignedIn, SignedOut } from '@clerk/nextjs';
 import styles from './Logo.module.css';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const { userId } = useAuth();
+  const { user } = useUser();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +23,24 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!userId) return;
+    
+    // Check if user is admin
+    checkAdminStatus();
+  }, [userId]);
+
+  const checkAdminStatus = async () => {
+    try {
+      const response = await fetch('/api/admin/check');
+      const data = await response.json();
+      setIsAdmin(data.isAdmin);
+    } catch (error) {
+      console.error('Error checking admin status:', error);
+      setIsAdmin(false);
+    }
+  };
 
   return (
     <nav role="navigation" aria-label="Main navigation" className={`fixed w-full z-50 transition-all duration-300 ${
@@ -92,6 +114,19 @@ export default function Navbar() {
                 </SignUpButton>
               </SignedOut>
               <SignedIn>
+                {isAdmin && (
+                  <Link
+                    href="/admin"
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                      scrolled
+                        ? 'text-white hover:text-white hover:bg-red-500/20'
+                        : 'text-white hover:text-white hover:bg-red-500/20'
+                    }`}
+                    title="Admin Dashboard"
+                  >
+                    🔐 Admin
+                  </Link>
+                )}
                 <Link
                   href="/dashboard"
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
@@ -166,7 +201,7 @@ export default function Navbar() {
               { name: 'Contact', href: '/contact' },
               { name: 'Dashboard', href: '/dashboard', signedIn: true },
             ].map((item) => (
-              (!item.signedIn || (item.signedIn && <SignedIn>true</SignedIn>)) && (
+              (!item.signedIn || (item.signedIn)) && (
                 <Link
                   key={item.name}
                   href={item.href}
@@ -177,6 +212,15 @@ export default function Navbar() {
                 </Link>
               )
             ))}
+            {isAdmin && (
+              <Link
+                href="/admin"
+                className="block px-4 py-3 text-white hover:text-white hover:bg-red-500/20 rounded-xl transition-all duration-300 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                🔐 Admin Dashboard
+              </Link>
+            )}
             <div className="px-4 py-3">
               <SignedOut>
                 <div className="space-y-2">

@@ -1,6 +1,6 @@
 datasource db {
   provider = "postgresql"
-  url ="postgresql://postgres:root@localhost:5432/rovartdb?schema=public"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -12,22 +12,28 @@ model User {
   name  String
   email String @unique
   phone String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   reservations Reservation[]
   customer Customer?
   makeupArtist MakeupArtist?
 }
 
 model Customer {
-  user       User @relation(fields: [userId], references: [id])
+  user       User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId     String @unique
   preferences String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model MakeupArtist {
-  user         User @relation(fields: [userId], references: [id])
+  user         User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId       String @unique
   portfolio    String[]
   availability Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model MakeupService {
@@ -35,26 +41,39 @@ model MakeupService {
   name      String
   duration  Int
   price     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   reservations Reservation[]
 }
 
 model Reservation {
   reservationId String @id @default(uuid())
   date          DateTime
+  time          String?
   status        ReservationStatus @default(Pending)
-  user          User @relation(fields: [userId], references: [id])
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  user          User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId        String
-  makeupService MakeupService @relation(fields: [serviceId], references: [serviceId])
+  makeupService MakeupService @relation(fields: [serviceId], references: [serviceId], onDelete: Cascade)
   serviceId     String
   payment       Payment?
+
+  @@index([userId])
+  @@index([serviceId])
+  @@index([date])
 }
 
 model Payment {
   paymentId String @id @default(uuid())
   amount    Float
   status    PaymentStatus @default(Pending)
-  reservation Reservation @relation(fields: [reservationId], references: [reservationId])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  reservation Reservation @relation(fields: [reservationId], references: [reservationId], onDelete: Cascade)
   reservationId String @unique
+
+  @@index([reservationId])
 }
 
 enum ReservationStatus {

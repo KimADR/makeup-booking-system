@@ -1,0 +1,75 @@
+prisma:cli:bin Failed to initialize the command state: Error: ENOENT: no such file or directory, open 'C:\Users\andri\AppData\Roaming\prisma-nodejs\Config\commands.json' +1740ms
+prisma:config:loadConfigFromFile Config file loaded in 174.47ms +1540ms
+prisma:config:loadConfigFromFile No config file found in the current working directory D:\All-Project\makeup-booking-system +0ms
+prisma:getSchema prismaConfig null +184ms
+prisma:getSchema Checking existence of D:\All-Project\makeup-booking-system\schema.prisma +0ms
+prisma:getSchema Reading schema from single file D:\All-Project\makeup-booking-system\schema.prisma +0ms
+prisma:getSchema Checking existence of D:\All-Project\makeup-booking-system\prisma\schema.prisma +1ms
+prisma:getSchema Reading schema from single file D:\All-Project\makeup-booking-system\prisma\schema.prisma +5ms
+prisma:getConfig Using getConfig Wasm +3ms
+prisma:cli Failed to read schema information. Using default values: '{\n  "name": "GetConfigError"\n}' +24ms
+prisma:engines binaries to download schema-engine, libquery-engine +1941ms
+prisma:fetch-engine:download file D:\All-Project\makeup-booking-system\node_modules\.pnpm\@prisma+engines@6.19.0\node_modules\@prisma\engines\schema-engine-windows.exe does not exist and must be downloaded +6ms
+prisma:fetch-engine:download file D:\All-Project\makeup-booking-system\node_modules\.pnpm\@prisma+engines@6.19.0\node_modules\@prisma\engines\query_engine-windows.dll.node does not exist and must be downloaded +0ms
+prisma:fetch-engine:download https://binaries.prisma.sh/all_commits/2ba551f319ab1df4bc874a89965d8b3641056773/windows/schema-engine.exe.gz will be downloaded to D:\All-Project\makeup-booking-system\node_modules\.pnpm\@prisma+engines@6.19.0\node_modules\@prisma\engines\schema-engine-windows.exe +2ms
+prisma:fetch-engine:download https://binaries.prisma.sh/all_commits/2ba551f319ab1df4bc874a89965d8b3641056773/windows/query_engine.dll.node.gz will be downloaded to D:\All-Project\makeup-booking-system\node_modules\.pnpm\@prisma+engines@6.19.0\node_modules\@prisma\engines\query_engine-windows.dll.node +1ms
+prisma:fetch-engine:download Downloading https://binaries.prisma.sh/all_commits/2ba551f319ab1df4bc874a89965d8b3641056773/windows/schema-engine.exe.gz to D:\All-Project\makeup-booking-system\node_modules\.pnpm\@prisma+engines@6.19.0\node_modules\@prisma\engines\schema-engine-windows.exe ... +2ms
+prisma:fetch-engine:download Downloading https://binaries.prisma.sh/all_commits/2ba551f319ab1df4bc874a89965d8b3641056773/windows/query_engine.dll.node.gz to D:\All-Project\makeup-booking-system\node_modules\.pnpm\@prisma+engines@6.19.0\node_modules\@prisma\engines\query_engine-windows.dll.node ... +71ms
+prisma:getSchema prismaConfig null +5ms
+prisma:getSchema Checking existence of D:\All-Project\makeup-booking-system\schema.prisma +0ms
+prisma:getSchema Reading schema from single file D:\All-Project\makeup-booking-system\schema.prisma +0ms
+prisma:getSchema prismaConfig null +1ms
+prisma:getSchema Checking existence of D:\All-Project\makeup-booking-system\schema.prisma +0ms
+prisma:getSchema Reading schema from single file D:\All-Project\makeup-booking-system\schema.prisma +0ms
+prisma:getSchema Checking existence of D:\All-Project\makeup-booking-system\prisma\schema.prisma +0ms
+prisma:getSchema Reading schema from single file D:\All-Project\makeup-booking-system\prisma\schema.prisma +0ms
+prisma:getSchema Checking existence of D:\All-Project\makeup-booking-system\prisma\schema.prisma +0ms
+prisma:getSchema Reading schema from single file D:\All-Project\makeup-booking-system\prisma\schema.prisma +1ms
+prisma:getConfig Using getConfig Wasm +3ms
+prisma:getConfig config data retrieved without errors in getConfig Wasm +2ms
+prisma:cli:checkpoint runCheckpointClientCheck(): Execution time for getting info: 93.64280000000008 ms +1ms
+prisma:cli:checkpoint runCheckpointClientCheck(): Execution time for "await checkpoint.check(data)": 80.03160000000025 ms +81ms
+prisma:fetch-engine:downloadZip An error occurred while downloading the checksums files {
+  "type": "system",
+  "errno": "ETIMEDOUT",
+  "code": "ETIMEDOUT",
+  "attemptNumber": 1,
+  "retriesLeft": 2
+} +1258ms
+prisma:fetch-engine:downloadZip An error occurred while downloading the checksums files {
+  "type": "system",
+  "errno": "ETIMEDOUT",
+  "code": "ETIMEDOUT",
+  "attemptNumber": 1,
+  "retriesLeft": 2
+} +4ms
+prisma:fetch-engine:downloadZip An error occurred while downloading the checksums files {
+  "type": "system",
+  "errno": "ETIMEDOUT",
+  "code": "ETIMEDOUT",
+  "attemptNumber": 2,
+  "retriesLeft": 1
+} +1540ms
+prisma:fetch-engine:downloadZip An error occurred while downloading the checksums files {
+  "type": "system",
+  "errno": "ETIMEDOUT",
+  "code": "ETIMEDOUT",
+  "attemptNumber": 2,
+  "retriesLeft": 1
+} +6ms
+prisma:fetch-engine:downloadZip An error occurred while downloading the checksums files {
+  "type": "system",
+  "errno": "ETIMEDOUT",
+  "code": "ETIMEDOUT",
+  "attemptNumber": 3,
+  "retriesLeft": 0
+} +2544ms
+Error: gs: request to https://binaries.prisma.sh/all_commits/2ba551f319ab1df4bc874a89965d8b3641056773/windows/schema-engine.exe.gz.sha256 failed, reason: 
+    at ClientRequest.<anonymous> (D:\All-Project\makeup-booking-system\node_modules\.pnpm\prisma@6.19.0_typescript@5.9.3\node_modules\prisma\build\index.js:247:26184)
+    at ClientRequest.emit (node:events:519:28)
+    at emitErrorEvent (node:_http_client:107:11)
+    at TLSSocket.socketErrorListener (node:_http_client:574:5)
+    at TLSSocket.emit (node:events:519:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
